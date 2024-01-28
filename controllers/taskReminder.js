@@ -54,7 +54,7 @@ export const taskReminder = async (req, res) => {
 
     res
       .status(200)
-      .json({ message: "Successfully updated task priorities and started making call to the user", task: udpatedTask });
+      .json("Successfully updated task priorities and started making call to the user");
   } catch (error) {
     console.error(
       "Error updating task priorities and making calls ",
