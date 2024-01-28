@@ -9,7 +9,7 @@ import morgan from "morgan"; // middleware for logging HTTP requests and respons
 import authRoutes from "./routes/auth.js";
 import taskRoutes from "./routes/task.js";
 import subtaskRoutes from "./routes/subtask.js";
-import taskReminderRoutes from "./routes/taskReminder.js";
+import taskReminderRoutes from "./routes/cron.js";
 import callStatusRoutes from "./routes/twilio.js";
 
 
@@ -44,7 +44,7 @@ const startServer = async () => {
   try {
       connectDB(process.env.MONGO_URL, () => {
       console.log("MongoDB connected, starting server...");
-      app.listen(PORT, () => console.log("Server started on port http://localhost:8080")
+      app.listen(PORT, () => console.log("Server started on port https://task-management-145y.onrender.com/")
       );
     });
   } catch (error) {
