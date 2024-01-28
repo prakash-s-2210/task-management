@@ -9,7 +9,8 @@ import morgan from "morgan"; // middleware for logging HTTP requests and respons
 import authRoutes from "./routes/auth.js";
 import taskRoutes from "./routes/task.js";
 import subtaskRoutes from "./routes/subtask.js";
-import taskReminderRoutes from "./routes/taskReminder.js"
+import taskReminderRoutes from "./routes/taskReminder.js";
+import callStatusRoutes from "./routes/twilio.js";
 
 
 //CONFIGURATIONS AND SETUP
@@ -32,7 +33,8 @@ app.use("/auth", authRoutes); // use authentication routes
 app.use("/tasks", taskRoutes); // use task routes
 app.use("/tasks/:taskId", subtaskRoutes); // use sub task routes
 app.use("/subtasks", subtaskRoutes); // use sub task routes
-app.use("/cron", taskReminderRoutes)
+app.use("/cron", taskReminderRoutes); // Cron logic for changing priority of task based on due_date of task
+app.use("/events", callStatusRoutes); // webhook for call status
 
  
 /* MONGOOSE SETUP */
