@@ -45,7 +45,7 @@ export const taskReminder = async (req, res) => {
 
       const call = await client.calls.create({
         statusCallback: "https://task-management-145y.onrender.com/events",
-        statusCallbackEvent: ["answered"],
+        statusCallbackEvent: ["initiated", "answered"],
         statusCallbackMethod: "POST",
         url: "http://demo.twilio.com/docs/voice.xml",
         to: `+91${userToCall.phoneNumber}`,
